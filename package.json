@@ -2,13 +2,19 @@
   "name": "hack_hands",
   "version": "0.9.0",
   "description": "hack hands nodejs tutorial",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aryehpro/hack_hands.git"
   },
+  "main": "server.js",
   "author": "aryeh",
   "license": "ISC",
+  "private": true,
   "dependencies": {
+    "ejs": "^2.3.4",
     "express": "^4.13.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
