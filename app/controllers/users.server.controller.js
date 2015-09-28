@@ -12,3 +12,27 @@ exports.create = function(req, res, next) {
 		}
 	});
 };
+
+exports.list = function(req, res, next) {
+	User.find({}, function(err, users) {
+		if(err) {
+			return next(err);
+		}
+		
+		return res.json(users);
+	});
+};
+
+exports.userByID = function(req, res, next, id) {
+	User.findOne({ _id: id }, function(err, user) {
+		if(err) { return next(err); }
+		
+		req.user = user;
+		next();
+	});
+};
+
+exports.read = function(req, res, next) {
+	res.json(req.user);
+};
+		
