@@ -35,4 +35,23 @@ exports.userByID = function(req, res, next, id) {
 exports.read = function(req, res, next) {
 	res.json(req.user);
 };
+
+exports.update = function(req, res, next) {
+	User.findByIdAndUpdate(req.user.id, req.body, {"new": true}, function(err, user) {
+		
+		if(err) { return next(err); }
+		
+		res.json(user);
+		
+	});
+};
+
+exports.delete = function(req, res, next) {
+	User.findByIdAndRemove(req.user.id, function(err) {
+		if(err) { return next(err); }
+		
+		res.json(req.user);
+		
+	});
+};
 		
