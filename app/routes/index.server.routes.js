@@ -1,6 +1,8 @@
 module.exports = function(app) {
 	/* index rendering controller */
 	var index = require('../controllers/index.server.controller');
+    /* users controller */
+    var users = require('../controllers/users.server.controller');
 	
 	/* looks for ?name parameter in url */
 	var nameExists = function(req, res, next) {
@@ -17,7 +19,7 @@ module.exports = function(app) {
 		res.send('Hello ' + req.query.name);
 	};	
 
-	/* log all GET requests to console */
+	/* log all requests to console */
 	app.use(function(req, res, next) {
 		var date = new Date();
 		var options = {
