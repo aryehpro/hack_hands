@@ -20,7 +20,7 @@ module.exports = function(app) {
         .get(users.renderRegister)
         .post(users.register);
 
-    app.route('login')
+    app.route('/login')
         .get(users.renderLogin)
         .post(passport.authenticate('local', {
             successRedirect: '/',
@@ -28,5 +28,5 @@ module.exports = function(app) {
             failureFlash: true
         }));
 
-    app.get('logout', users.logout);
+    app.get('/logout', users.logout);
 };
